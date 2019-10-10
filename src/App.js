@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Navigation from './common/Navigation';
 import router from './router';
 
 function App() {
   return (
     <BrowserRouter>
+      <Navigation />
       <div className="layout-container">
         <Switch>
           {router.map(route => {
