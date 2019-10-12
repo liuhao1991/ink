@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Form, Button, Icon, Input, Tooltip, Row, Col } from 'antd';
 import './Login.css';
 import axios from 'axios';
@@ -13,7 +14,6 @@ const LoginForm = (props) => {
               console.log(res.data);
             });
       }
-      
     });
   };
 
@@ -55,12 +55,14 @@ const WrappedLoginForm = Form.create({ name: 'normal_login' })(LoginForm);
 
 export default () => {
   return (
-    // <div className="layout-container">
+    <div className="layout-container">
       <div className="lark-form">
         <div className="lark-form-main">
           <div className="lark-form-content">
             <div className="account-slogon">
-              Hello, Ink.
+              <Link to="/">
+                Hello, Ink.
+              </Link>
             </div>
             <div className="account-login form-pro">
               <WrappedLoginForm />
@@ -89,6 +91,6 @@ export default () => {
           </div>
         </div>
       </div>
-    // </div>
+    </div>
   )
 }

@@ -19,10 +19,10 @@ function Nav() {
   return (
     <div className="header-nav">
       <Menu mode="horizontal">
-        <Menu.Item key="home">
+        <Menu.Item>
           <Link to="/">首页</Link>
         </Menu.Item>
-        <Menu.Item key="data">
+        <Menu.Item>
           <Link to="/data">数据安全</Link>
         </Menu.Item>
       </Menu>

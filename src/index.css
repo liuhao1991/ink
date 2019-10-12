@@ -20,9 +20,17 @@ ul {
 li {
   list-style-type: none;
 }
+@media screen and (max-width: 767px) {
+  .header .header-nav-left .header-nav {
+    display: none;
+  }
+  .lark-form-main {
+    border: none;
+  }
+}
 
 .layout-container {
-  width: 1056px;
+  max-width: 1056px;
   padding-left: 16px;
   padding-right: 16px;
   margin-left: auto;
@@ -32,4 +40,5 @@ li {
   justify-content: space-between;
   align-items: center;
 }
+
 
