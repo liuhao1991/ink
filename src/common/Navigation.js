@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button, Menu } from 'antd';
 import logo from '../logo.svg';
@@ -43,7 +44,13 @@ function LoginAction() {
   )
 }
 
-export default () => {
+function User({ user }) {
+  return (
+    <img className="avatar" src={user.avatarUrl} alt={user.name} />
+  )
+}
+
+function Navigation({ user }) {
   return (
     <div className="header">
       <div className="layout-container">
@@ -52,9 +59,13 @@ export default () => {
           <Nav />
         </div>
         <div className="header-nav-right">
-          <LoginAction />
+          {user === null ? <LoginAction /> : <User user={user}/>}
         </div>
       </div>
     </div>
   );
 }
+
+const mapStateToProp = state => ({user: state.user});
+
+export default connect(mapStateToProp)(Navigation);

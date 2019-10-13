@@ -57,3 +57,9 @@
 .ant-menu-horizontal > .ant-menu-item > a:hover {
   color: #101010;
 }
+
+.avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}

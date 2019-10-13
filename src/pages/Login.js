@@ -1,23 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Form, Button, Icon, Input, Tooltip, Row, Col } from 'antd';
+import { login } from '../store/actions';
 import './Login.css';
-import axios from 'axios';
 
-const LoginForm = (props) => {
+const LoginForm = ({ form, login }) => {
   const handleSubmit = e => {
     e.preventDefault();
-    props.form.validateFields((err, values) => {
+    form.validateFields((err, values) => {
       if (!err) {
-        axios.post('/api/login', values)
-          .then(res => {
-              console.log(res.data);
-            });
+        login(values);
       }
     });
   };
 
-  const { getFieldDecorator } = props.form;
+  const { getFieldDecorator } = form;
   return (
     <Form onSubmit={handleSubmit} className="login-form">
       <Form.Item>
@@ -50,8 +48,12 @@ const LoginForm = (props) => {
   );
 }
 
+const mapStateToAction = {
+  login
+}
 
-const WrappedLoginForm = Form.create({ name: 'normal_login' })(LoginForm);
+const WrappedLoginForm = Form.create({ name: 'normal_login' })(connect(null, mapStateToAction)(LoginForm));
+
 
 export default () => {
   return (
